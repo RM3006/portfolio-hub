@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genomics Sequencing Pipeline | Data Project Detail</title>
+  
+  <!-- 
+   * 1. Pull premium modern typography from Google Fonts using separate links to avoid forbidden characters.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-page">
+
+  <!-- 
+   * 2. Render background grid overlay to maintain visual alignment.
+  -->
+  <div class="grid-overlay"></div>
+
+  <!-- 
+   * 3. Set up the header panel with global navigation and brand mark.
+  -->
+  <header>
+    <a href="index.html" class="logo">Pushing frontiers with Data</a>
+    <nav class="nav-links">
+      <a href="index.html" class="back-button-link">Back to home</a>
+    </nav>
+  </header>
+
+  <!-- 
+   * 4. Build the two-column detailed project display.
+  -->
+  <main class="project-sheet-container">
+    
+    <!-- 
+     * 5. Left details panel featuring description text and tech stack capsules.
+    -->
+    <section class="project-details-pane">
+      <span class="project-section-num">01 / BIOINFORMATICS</span>
+      
+      <h1 class="project-headline">Genomics Sequencing Pipeline</h1>
+      <p class="project-lead-text">Scaling pipeline orchestration for high-throughput DNA mutation mapping and clinical bioinformatics pipelines at scale.</p>
+      
+      <div class="project-body-content">
+        
+        <!-- 
+         * 6. Detail the analytical overview and mutation mapping process.
+        -->
+        <h3 class="body-sub-title">Overview</h3>
+        <p class="body-paragraph">Modern DNA sequencing processes generate massive raw FASTQ files containing billions of genetic fragments. This pipeline automates the high-volume ingestion, sequence alignment, variant mutation filtering, and validation steps necessary to output clean genetic records for clinical analysis.</p>
+        
+        <!-- 
+         * 7. Outline the cloud engineering and orchestration architecture.
+        -->
+        <h3 class="body-sub-title">Pipeline Architecture</h3>
+        <p class="body-paragraph">The cloud architecture scales compute nodes dynamically to handle sequencing spikes. Raw sequencing data is ingested via optimized parsing scripts before relational data warehouses warehouse the structured genetic records. Transformation models build high-performance variant datasets, while asset-based lineage engines manage pipeline execution with detailed quality checks.</p>
+        
+        <!-- 
+         * 8. Detail the data engineering tools and stack metadata.
+        -->
+        <h3 class="body-sub-title">Engineering Stack</h3>
+        <div class="tool-tags-grid">
+          
+          <div class="tool-tag">
+            <span class="tool-name">Terraform</span>
+            <span class="tool-use">Infrastructure Provisioning</span>
+          </div>
+          
+          <div class="tool-tag">
+            <span class="tool-name">Python</span>
+            <span class="tool-use">Data Parsing and Ingestion</span>
+          </div>
+          
+          <div class="tool-tag">
+            <span class="tool-name">SQL</span>
+            <span class="tool-use">Relational Variant Queries</span>
+          </div>
+          
+          <div class="tool-tag">
+            <span class="tool-name">dbt</span>
+            <span class="tool-use">Quality Modeling and Transformation</span>
+          </div>
+          
+          <div class="tool-tag">
+            <span class="tool-name">Dagster</span>
+            <span class="tool-use">Pipeline Lineage and Orchestration</span>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 
+     * 9. Right metrics panel featuring responsive telemetry data cards.
+    -->
+    <section class="project-metrics-pane">
+      <span class="project-section-num">02 / PERFORMANCE DATA</span>
+      
+      <div class="metrics-cards-grid">
+        
+        <!-- 
+         * 10. Render throughput telemetry card.
+        -->
+        <div class="metric-card">
+          <span class="metric-value">1.2B</span>
+          <span class="metric-label">Base Pairs Processed / Sec</span>
+          <p class="metric-detail">Optimized local CPU vector instructions stream gigabytes of sequencing base reads in parallel pipelines.</p>
+        </div>
+        
+        <!-- 
+         * 11. Render financial cloud efficiency telemetry card.
+        -->
+        <div class="metric-card">
+          <span class="metric-value">34%</span>
+          <span class="metric-label">Cloud Compute Cost Savings</span>
+          <p class="metric-detail">Dynamic provisioning and spot node scheduling cut idle server runtimes during intensive DNA sequencing tasks.</p>
+        </div>
+        
+        <!-- 
+         * 12. Render pipeline lineage reliability telemetry card.
+        -->
+        <div class="metric-card">
+          <span class="metric-value">99.99%</span>
+          <span class="metric-label">Pipeline Lineage Uptime</span>
+          <p class="metric-detail">Asset-based orchestration tracks material data nodes, guaranteeing zero mutation data pipelines fail silently.</p>
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

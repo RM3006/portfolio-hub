@@ -17,12 +17,21 @@ function setupPortfolioTransitions() {
   columns.forEach((col) => {
     col.addEventListener('click', () => {
       const projectName = col.getAttribute('data-project');
-      if (projectTitleElement) {
-        projectTitleElement.textContent = projectName;
-      }
+      const columnId = col.getAttribute('id');
       
-      if (detailsPanel) {
-        detailsPanel.classList.add('active');
+      if (columnId === 'col-life-science') {
+        document.body.classList.add('page-fade-out');
+        setTimeout(() => {
+          window.location.href = 'life_science.html';
+        }, 400);
+      } else {
+        if (projectTitleElement) {
+          projectTitleElement.textContent = projectName;
+        }
+        
+        if (detailsPanel) {
+          detailsPanel.classList.add('active');
+        }
       }
     });
   });
