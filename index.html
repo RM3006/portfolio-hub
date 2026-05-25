@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Projects Portfolio | Minimalist landing page</title>
+  
+  <!-- 
+   * 1. Pull premium modern typography from Google Fonts using separate links to avoid forbidden characters.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 
+   * 2. Render background grid overlay to define structured alignment.
+  -->
+  <div class="grid-overlay"></div>
+
+  <!-- 
+   * 3. Set up the header panel with global navigation and brand mark.
+  -->
+  <header>
+    <a href="#" class="logo">Pushing frontiers with Data</a>
+    <nav class="nav-links">
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link" id="contact-trigger">Contact</a>
+    </nav>
+  </header>
+
+  <!-- 
+   * 4. Build the three vertical interactive layout columns.
+  -->
+  <main class="portfolio-container">
+    
+    <!-- 
+     * 5. Life Science Column featuring a real monochromatic imagery background.
+    -->
+    <section class="portfolio-column" id="col-life-science" data-project="Life Science Analytics">
+      <span class="column-num">01 / GENOMICS</span>
+      
+      <div class="image-bg-container">
+        <img class="section-image" src="images/life_science_clean.png" alt="Life Science Analytics">
+      </div>
+
+      <div class="column-content">
+        <h2 class="column-title">Life Science</h2>
+        <p class="column-desc">Statistical genomics, gene sequencing algorithms, and bioinformatics pipelines mapping complex systems.</p>
+      </div>
+    </section>
+
+    <!-- 
+     * 9. E-Commerce Column featuring a real monochromatic marketplace background.
+    -->
+    <section class="portfolio-column" id="col-ecommerce" data-project="E-Commerce Intelligence">
+      <span class="column-num">02 / MARKET</span>
+      
+      <div class="image-bg-container">
+        <img class="section-image" src="images/ecommerce_box.png" alt="E-Commerce Intelligence">
+      </div>
+
+      <div class="column-content">
+        <h2 class="column-title">E-Commerce</h2>
+        <p class="column-desc">Real-time prediction engines, basket analysis models, and conversion optimization pipelines.</p>
+      </div>
+    </section>
+
+    <!-- 
+     * 13. New Technologies Column featuring a real neural computational background.
+    -->
+    <section class="portfolio-column" id="col-new-tech" data-project="Advanced AI Systems">
+      <span class="column-num">03 / INTELLIGENCE</span>
+      
+      <div class="image-bg-container">
+        <img class="section-image" src="images/new_tech_chip.png" alt="Advanced AI Systems">
+      </div>
+
+      <div class="column-content">
+        <h2 class="column-title">New Tech</h2>
+        <p class="column-desc">Neural architectures, computational vision networks, and generative intelligence exploration.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 
+   * 18. Build the overlay for expanded portfolio items.
+  -->
+  <div class="expanded-panel" id="project-detail-panel">
+    <button class="back-button" id="close-panel-btn">Back to main</button>
+    <div class="loading-container">
+      <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="loading-text">system analysis initiating</div>
+      <h3 class="loading-title" id="expanded-project-title">Project Name</h3>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+/* 
+ * 1. Define custom properties for a strict monochromatic color palette.
+ * 2. Set up base styling with clean sans-serif and monospaced typography.
+ * 3. Configure grid overlay for a structured, blueprint-like aesthetic.
+ */
+
+:root {
+  --color-pure-white: #ffffff;
+  --color-light-grey: #f7f7f7;
+  --color-border: #e6e6e6;
+  --color-text-muted: #888888;
+  --color-text-main: #111111;
+  --color-accent: #000000;
+  
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  
+  --transition-speed: 0.5s;
+  --transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-light-grey);
+  color: var(--color-text-main);
+  font-family: var(--font-display);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+ * 4. Build a background grid system to enhance visual structure.
+ */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 
+ * 5. Style the minimalist header with branding and action indicators.
+ */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text-main);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text-main);
+  background-color: var(--color-pure-white);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--color-text-main);
+  color: var(--color-pure-white);
+  border-color: var(--color-text-main);
+}
+
+/* 
+ * 6. Set up the three-column layout.
+ */
+.portfolio-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-column {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8rem 3rem 4rem 3rem;
+  border-right: 1px solid var(--color-border);
+  background-color: var(--color-pure-white);
+  transition: flex var(--transition-speed) var(--transition-easing), background-color 0.4s ease;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.portfolio-column:last-child {
+  border-right: none;
+}
+
+/* 
+ * 7. Configure hover animations for columns.
+ */
+.portfolio-column:hover {
+  flex: 1.6;
+  background-color: #fbfbfb;
+}
+
+/* 
+ * 8. Position the decorative background images inside columns.
+ */
+.image-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  transition: opacity 0.7s var(--transition-easing);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%);
+}
+
+.portfolio-column:hover .image-bg-container {
+  opacity: 0.75;
+}
+
+.section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.15) brightness(0.95);
+  transition: transform 0.9s var(--transition-easing);
+}
+
+.portfolio-column:hover .section-image {
+  transform: scale(1.06);
+}
+
+/* 
+ * 9. Style text content within each column.
+ */
+.column-num {
+  position: relative;
+  z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.column-content {
+  position: relative;
+  z-index: 4;
+  margin-top: auto;
+}
+
+.column-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+.portfolio-column:hover .column-title {
+  transform: translateY(-5px);
+}
+
+.column-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 280px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--transition-easing), transform 0.5s var(--transition-easing);
+}
+
+.portfolio-column:hover .column-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 
+ * 11. Style the click-to-expand details panel.
+ */
+.expanded-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-pure-white);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s var(--transition-easing), visibility 0.6s var(--transition-easing);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.expanded-panel.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-button {
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
+  background-color: var(--color-pure-white);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 25;
+}
+
+.back-button:hover {
+  background-color: var(--color-text-main);
+  color: var(--color-pure-white);
+  border-color: var(--color-text-main);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-text-main);
+  border-radius: 50%;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loading-text {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.loading-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  letter-spacing: -0.01em;
+  margin-top: 1rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.6);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* 
+ * 12. Adjust layout for responsive viewport scaling.
+ */
+@media (max-width: 900px) {
+  .portfolio-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .portfolio-column {
+    width: 100%;
+    height: 33.33vh;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 6rem 2rem 2rem 2rem;
+  }
+  
+  .portfolio-column:last-child {
+    border-bottom: none;
+  }
+  
+  .portfolio-column:hover {
+    flex: 1.4;
+  }
+  
+  .svg-bg-container {
+    width: 50%;
+    height: 60%;
+  }
+  
+  .center-core {
+    width: 130px;
+    height: 130px;
+  }
+  
+  header {
+    padding: 1.5rem;
+  }
+}
