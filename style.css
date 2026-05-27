@@ -173,35 +173,7 @@ header {
   opacity: 0.75;
 }
 
-/* 
- * 8.2. Style low-contrast monospaced metadata telemetry tags at top-right of columns.
- */
-.column-metadata {
-  position: absolute;
-  top: 2.5rem;
-  right: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  z-index: 4;
-  pointer-events: none;
-}
 
-.column-metadata span {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  opacity: 0.65;
-  transition: opacity 0.4s ease, color 0.4s ease;
-}
-
-.portfolio-column:hover .column-metadata span {
-  opacity: 0.95;
-  color: var(--color-text-main);
-}
 
 .section-image {
   width: 100%;
