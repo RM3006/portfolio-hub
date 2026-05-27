@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="100%" height="100%">
+  <defs>
+    <!-- 
+     * 1. Embed custom CSS styles for cohesive animations matching the DNA helix page.
+    -->
+    <style>
+      .box-edge-main {
+        stroke: #222222;
+        stroke-width: 1.5;
+        fill: none;
+      }
+      
+      .box-edge-sub {
+        stroke: #555555;
+        stroke-width: 1;
+        fill: none;
+      }
+      
+      .barcode-line {
+        stroke: #333333;
+        stroke-width: 2;
+      }
+      
+      .barcode-line-thin {
+        stroke: #333333;
+        stroke-width: 1;
+      }
+      
+      /* 
+       * 2. Slow scan laser animation moving up and down the box label.
+      */
+      .scan-laser {
+        stroke: #111111;
+        stroke-width: 1.2;
+        opacity: 0.6;
+        animation: laserScan 4s ease-in-out infinite alternate;
+      }
+      
+      .transaction-flow {
+        stroke: #888888;
+        stroke-width: 1.2;
+        stroke-dasharray: 6, 6;
+        fill: none;
+        animation: flowMove 16s linear infinite;
+      }
+      
+      .floating-node {
+        fill: #111111;
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+      }
+      
+      .floating-node-sub {
+        fill: #666666;
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+        animation-delay: 1.5s;
+      }
+      
+      /* 
+       * 3. Apply the identical vertical floating translation to match the DNA helix.
+      */
+      .floating-group {
+        animation: boxFloat 8s ease-in-out infinite;
+        transform-origin: center;
+      }
+      
+      @keyframes boxFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes laserScan {
+        0% {
+          y1: 152;
+          y2: 172;
+        }
+        100% {
+          y1: 198;
+          y2: 218;
+        }
+      }
+      
+      @keyframes flowMove {
+        from {
+          stroke-dashoffset: 100;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      @keyframes nodeGlow {
+        0% {
+          transform: scale(0.9);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1.15);
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- 
+   * 4. Place isometric box and data flow inside the floating container group.
+  -->
+  <g class="floating-group">
+    
+    <!-- 
+     * 5. Draw background transactional curved flow lines into the package.
+    -->
+    <path class="transaction-flow" d="M 150,50 Q 300,30 450,95" />
+    <path class="transaction-flow" d="M 750,50 Q 600,30 450,95" />
+    <path class="transaction-flow" d="M 200,250 Q 320,230 415,185" />
+    <path class="transaction-flow" d="M 700,250 Q 580,230 485,185" />
+
+    <!-- 
+     * 6. Draw the isometric cardboard delivery box.
+    -->
+    <!-- Top Face -->
+    <polygon class="box-edge-main" points="450,80 520,110 450,140 380,110" />
+    <!-- Left Face -->
+    <polygon class="box-edge-main" points="380,110 380,190 450,220 450,140" />
+    <!-- Right Face -->
+    <polygon class="box-edge-main" points="450,140 450,220 520,190 520,110" />
+    
+    <!-- Inner seam fold marks for package realism -->
+    <line class="box-edge-sub" x1="450" y1="80" x2="450" y2="110" />
+    <line class="box-edge-sub" x1="380" y1="110" x2="450" y2="110" />
+    <polygon class="box-edge-sub" points="430,95 470,113 450,121 410,103" opacity="0.3" />
+
+    <!-- 
+     * 7. Place shipping barcode label on the left isometric face.
+    -->
+    <polygon points="395,145 425,157 425,202 395,190" fill="#f0f0f0" stroke="#555555" stroke-width="0.8" />
+    
+    <!-- Barcode barcode vertical stripes -->
+    <line class="barcode-line" x1="400" y1="155" x2="400" y2="182" />
+    <line class="barcode-line-thin" x1="403" y1="156" x2="403" y2="183" />
+    <line class="barcode-line" x1="406" y1="157" x2="406" y2="184" />
+    <line class="barcode-line-thin" x1="410" y1="159" x2="410" y2="186" />
+    <line class="barcode-line" x1="414" y1="160" x2="414" y2="188" />
+    <line class="barcode-line-thin" x1="418" y1="162" x2="418" y2="190" />
+    <line class="barcode-line" x1="421" y1="163" x2="421" y2="191" />
+
+    <!-- 
+     * 8. Scanning laser line pulsing down the barcode label.
+    -->
+    <line class="scan-laser" x1="392" y1="170" x2="428" y2="184" />
+
+    <!-- 
+     * 9. Place floating data nodes aligned with the pipeline flows.
+    -->
+    <circle class="floating-node" cx="150" cy="50" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node-sub" cx="750" cy="50" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node" cx="200" cy="250" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node-sub" cx="700" cy="250" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="floating-node" cx="300" cy="40" r="3" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node-sub" cx="600" cy="40" r="3" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <!-- Package corners nodes for structural synergy -->
+    <circle class="floating-node" cx="450" cy="80" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node" cx="380" cy="190" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node" cx="520" cy="190" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="floating-node-sub" cx="450" cy="220" r="5" style="transform-box: fill-box; transform-origin: center;" />
+  </g>
+</svg>
