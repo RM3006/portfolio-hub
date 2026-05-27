@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="100%" height="100%">
+  <defs>
+    <!-- 
+     * 1. Embed custom CSS styles directly in the SVG file for subtle animations.
+    -->
+    <style>
+      .dna-strand-1 {
+        stroke: #222222;
+        stroke-width: 1.5;
+        fill: none;
+        stroke-dasharray: 800;
+        stroke-dashoffset: 0;
+        animation: dnaDraw 12s linear infinite;
+      }
+      
+      .dna-strand-2 {
+        stroke: #555555;
+        stroke-width: 1.5;
+        fill: none;
+        stroke-dasharray: 8, 8;
+        animation: dnaFlow 24s linear infinite;
+      }
+      
+      .dna-rung {
+        stroke: #888888;
+        stroke-width: 1;
+        opacity: 0.3;
+        animation: rungPulse 4s ease-in-out infinite alternate;
+      }
+      
+      .dna-node {
+        fill: #111111;
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+      }
+      
+      .dna-node-sub {
+        fill: #666666;
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+        animation-delay: 1.5s;
+      }
+      
+      /* 
+       * 2. Apply a very slow, subtle vertical float to the entire helix group.
+      */
+      .floating-group {
+        animation: helixFloat 8s ease-in-out infinite;
+        transform-origin: center;
+      }
+      
+      @keyframes helixFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes dnaDraw {
+        from {
+          stroke-dashoffset: 800;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      @keyframes dnaFlow {
+        from {
+          stroke-dashoffset: 16;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      @keyframes rungPulse {
+        0% {
+          opacity: 0.15;
+          stroke-width: 0.8;
+        }
+        100% {
+          opacity: 0.45;
+          stroke-width: 1.2;
+        }
+      }
+      
+      @keyframes nodeGlow {
+        0% {
+          transform: scale(0.9);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1.15);
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- 
+   * 3. Group all DNA components together inside the floating container.
+  -->
+  <g class="floating-group">
+    
+    <!-- 
+     * 4. Draw vertical connecting rungs at regular horizontal increments.
+    -->
+    <line class="dna-rung" x1="90" y1="80" x2="90" y2="220" />
+    <line class="dna-rung" x1="130" y1="102" x2="130" y2="198" />
+    <line class="dna-rung" x1="170" y1="135" x2="170" y2="165" />
+    
+    <line class="dna-rung" x1="250" y1="198" x2="250" y2="102" />
+    <line class="dna-rung" x1="290" y1="220" x2="290" y2="80" />
+    <line class="dna-rung" x1="330" y1="198" x2="330" y2="102" />
+    
+    <line class="dna-rung" x1="410" y1="135" x2="410" y2="165" />
+    <line class="dna-rung" x1="450" y1="102" x2="450" y2="198" />
+    <line class="dna-rung" x1="490" y1="80" x2="490" y2="220" />
+    
+    <line class="dna-rung" x1="570" y1="102" x2="570" y2="198" />
+    <line class="dna-rung" x1="610" y1="135" x2="610" y2="165" />
+    <line class="dna-rung" x1="650" y1="165" x2="650" y2="135" />
+    
+    <line class="dna-rung" x1="730" y1="220" x2="730" y2="80" />
+    <line class="dna-rung" x1="770" y1="198" x2="770" y2="102" />
+    <line class="dna-rung" x1="810" y1="135" x2="810" y2="165" />
+
+    <!-- 
+     * 5. Draw the primary continuous DNA strand sinus wave.
+    -->
+    <path class="dna-strand-1" d="M 50,150 C 130,30 170,30 250,150 C 330,270 370,270 450,150 C 530,30 570,30 650,150 C 730,270 770,270 850,150" />
+    
+    <!-- 
+     * 6. Draw the secondary intertwined dashed DNA strand sinus wave.
+    -->
+    <path class="dna-strand-2" d="M 50,150 C 130,270 170,270 250,150 C 330,30 370,30 450,150 C 530,270 570,270 650,150 C 730,30 770,30 850,150" />
+
+    <!-- 
+     * 7. Place interactive glowing data nodes on the rungs and junctions.
+    -->
+    <circle class="dna-node" cx="90" cy="80" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="90" cy="220" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="130" cy="102" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="130" cy="198" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="250" cy="198" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="250" cy="102" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="290" cy="220" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="290" cy="80" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="450" cy="102" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="450" cy="198" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="490" cy="80" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="490" cy="220" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="570" cy="102" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="570" cy="198" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="730" cy="220" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="730" cy="80" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="dna-node" cx="770" cy="198" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node-sub" cx="770" cy="102" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <!-- 
+     * 8. Place prominent center-wave intersections representing major data keys.
+    -->
+    <circle class="dna-node" cx="50" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node" cx="250" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node" cx="450" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node" cx="650" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="dna-node" cx="850" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+  </g>
+</svg>
