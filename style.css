@@ -184,6 +184,23 @@ header {
 }
 
 /* 
+ * 8.5. Optimize vector SVGs to contain beautifully within the narrow vertical column panes.
+ */
+.section-image[src$=".svg"] {
+  object-fit: contain;
+  width: 90%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.portfolio-column:hover .section-image[src$=".svg"] {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* 
  * 9. Style text content within each column.
  */
 .column-num {
