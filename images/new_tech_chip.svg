@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="100%" height="100%">
+  <defs>
+    <!-- 
+     * 1. Embed custom CSS styles for animations matching all homepage vector sections.
+    -->
+    <style>
+      .chip-line-main {
+        stroke: #222222;
+        stroke-width: 1.5;
+        fill: none;
+      }
+      
+      .chip-line-sub {
+        stroke: #555555;
+        stroke-width: 1;
+        fill: none;
+      }
+      
+      .chip-trace {
+        stroke: #888888;
+        stroke-width: 0.8;
+        fill: none;
+        opacity: 0.4;
+      }
+      
+      .chip-trace-active {
+        stroke: #111111;
+        stroke-width: 1.2;
+        fill: none;
+        stroke-dasharray: 10, 40;
+        animation: traceFlow 6s linear infinite;
+      }
+      
+      .chip-node {
+        fill: #111111;
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+      }
+      
+      .chip-node-sub {
+        fill: #666666;
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+        animation-delay: 1.5s;
+      }
+      
+      .chip-core-pulse {
+        fill: none;
+        stroke: #222222;
+        stroke-width: 1;
+        animation: corePulse 4s ease-in-out infinite alternate;
+      }
+      
+      /* 
+       * 2. Apply the identical vertical floating translation to match all homepage sections.
+      */
+      .floating-group {
+        animation: chipFloat 8s ease-in-out infinite;
+        transform-origin: center;
+      }
+      
+      @keyframes chipFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes traceFlow {
+        from {
+          stroke-dashoffset: 100;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      @keyframes corePulse {
+        0% {
+          transform: scale(0.95);
+          opacity: 0.2;
+        }
+        100% {
+          transform: scale(1.08);
+          opacity: 0.7;
+        }
+      }
+      
+      @keyframes nodeGlow {
+        0% {
+          transform: scale(0.9);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1.15);
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- 
+   * 3. Group all chip components inside the identical floating container.
+  -->
+  <g class="floating-group">
+    
+    <!-- 
+     * 4. Draw horizontal input/output circuit traces extending left and right.
+    -->
+    <!-- Left side circuit pathways -->
+    <path class="chip-trace" d="M 100,150 L 250,150 L 300,120 L 410,120" />
+    <path class="chip-trace" d="M 150,70 L 220,110 L 320,110 L 410,130" />
+    <path class="chip-trace" d="M 150,230 L 220,190 L 320,190 L 410,170" />
+    <path class="chip-trace" d="M 200,150 L 250,180 L 410,180" />
+    
+    <!-- Right side circuit pathways -->
+    <path class="chip-trace" d="M 800,150 L 650,150 L 600,180 L 490,180" />
+    <path class="chip-trace" d="M 750,70 L 680,110 L 580,110 L 490,170" />
+    <path class="chip-trace" d="M 750,230 L 680,190 L 580,190 L 490,130" />
+    <path class="chip-trace" d="M 700,150 L 650,120 L 490,120" />
+    
+    <!-- Top and Bottom vertical lines/buses -->
+    <path class="chip-trace" d="M 430,40 L 430,110" />
+    <path class="chip-trace" d="M 450,30 L 450,110" />
+    <path class="chip-trace" d="M 470,40 L 470,110" />
+    <path class="chip-trace" d="M 430,260 L 430,190" />
+    <path class="chip-trace" d="M 450,270 L 450,190" />
+    <path class="chip-trace" d="M 470,260 L 470,190" />
+
+    <!-- 
+     * 5. Animate flowing active data pulses traveling along key traces.
+    -->
+    <path class="chip-trace-active" d="M 100,150 L 250,150 L 300,120 L 410,120" />
+    <path class="chip-trace-active" d="M 800,150 L 650,150 L 600,180 L 490,180" />
+    <path class="chip-trace-active" d="M 150,70 L 220,110 L 320,110 L 410,130" />
+    <path class="chip-trace-active" d="M 750,230 L 680,190 L 580,190 L 490,130" />
+
+    <!-- 
+     * 6. Draw the central Microchip Silicon Package structure.
+    -->
+    <!-- Outer Plastic/Ceramic Body (Square with slightly chamfered corner or clean outlines) -->
+    <rect class="chip-line-main" x="410" y="110" width="80" height="80" rx="6" />
+    
+    <!-- Central Silicon Die -->
+    <rect class="chip-line-sub" x="430" y="130" width="40" height="40" rx="2" />
+    
+    <!-- Inner Core Details -->
+    <rect class="chip-line-sub" x="438" y="138" width="24" height="24" rx="1" opacity="0.5" />
+    
+    <!-- Core Pulsing Electromagnetic Glow -->
+    <rect class="chip-core-pulse" x="425" y="125" width="50" height="50" rx="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <!-- Pins: Small metal leads coming out of the chip sides -->
+    <!-- Left Pins -->
+    <line class="chip-line-main" x1="400" y1="120" x2="410" y2="120" />
+    <line class="chip-line-main" x1="400" y1="135" x2="410" y2="135" />
+    <line class="chip-line-main" x1="400" y1="150" x2="410" y2="150" />
+    <line class="chip-line-main" x1="400" y1="165" x2="410" y2="165" />
+    <line class="chip-line-main" x1="400" y1="180" x2="410" y2="180" />
+
+    <!-- Right Pins -->
+    <line class="chip-line-main" x1="490" y1="120" x2="500" y2="120" />
+    <line class="chip-line-main" x1="490" y1="135" x2="500" y2="135" />
+    <line class="chip-line-main" x1="490" y1="150" x2="500" y2="150" />
+    <line class="chip-line-main" x1="490" y1="165" x2="500" y2="165" />
+    <line class="chip-line-main" x1="490" y1="180" x2="500" y2="180" />
+
+    <!-- Top Pins -->
+    <line class="chip-line-main" x1="425" y1="100" x2="425" y2="110" />
+    <line class="chip-line-main" x1="438" y1="100" x2="438" y2="110" />
+    <line class="chip-line-main" x1="450" y1="100" x2="450" y2="110" />
+    <line class="chip-line-main" x1="462" y1="100" x2="462" y2="110" />
+    <line class="chip-line-main" x1="475" y1="100" x2="475" y2="110" />
+
+    <!-- Bottom Pins -->
+    <line class="chip-line-main" x1="425" y1="190" x2="425" y2="200" />
+    <line class="chip-line-main" x1="438" y1="190" x2="438" y2="200" />
+    <line class="chip-line-main" x1="450" y1="190" x2="450" y2="200" />
+    <line class="chip-line-main" x1="462" y1="190" x2="462" y2="200" />
+    <line class="chip-line-main" x1="475" y1="190" x2="475" y2="200" />
+
+    <!-- 
+     * 7. Place silicon circuit trace connection terminals (nodes).
+    -->
+    <circle class="chip-node" cx="100" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node" cx="800" cy="150" r="5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="chip-node-sub" cx="150" cy="70" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node-sub" cx="150" cy="230" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node-sub" cx="750" cy="70" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node-sub" cx="750" cy="230" r="4.5" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="chip-node" cx="250" cy="150" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node" cx="650" cy="150" r="4" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="chip-node-sub" cx="430" cy="40" r="3" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node" cx="450" cy="30" r="3.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node-sub" cx="470" cy="40" r="3" style="transform-box: fill-box; transform-origin: center;" />
+    
+    <circle class="chip-node-sub" cx="430" cy="260" r="3" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node" cx="450" cy="270" r="3.5" style="transform-box: fill-box; transform-origin: center;" />
+    <circle class="chip-node-sub" cx="470" cy="260" r="3" style="transform-box: fill-box; transform-origin: center;" />
+  </g>
+</svg>
