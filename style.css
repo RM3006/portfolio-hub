@@ -134,7 +134,7 @@ header {
   padding: 8rem 3rem 4rem 3rem;
   border-right: 1px solid var(--color-border);
   background-color: var(--color-pure-white);
-  transition: flex var(--transition-speed) var(--transition-easing), background-color 0.4s ease;
+  transition: flex var(--transition-speed) var(--transition-easing), background-color 0.4s ease, border-color 0.4s ease;
   cursor: pointer;
   z-index: 3;
 }
@@ -148,7 +148,8 @@ header {
  */
 .portfolio-column:hover {
   flex: 1.6;
-  background-color: #fbfbfb;
+  background-color: var(--color-text-main);
+  border-color: var(--color-text-main);
 }
 
 /* 
@@ -180,11 +181,12 @@ header {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%) contrast(1.15) brightness(0.95);
-  transition: transform 0.9s var(--transition-easing);
+  transition: transform 0.9s var(--transition-easing), filter 0.4s ease;
 }
 
 .portfolio-column:hover .section-image {
   transform: scale(1.06);
+  filter: invert(1) grayscale(100%) contrast(1.15) brightness(1.30);
 }
 
 /* 
@@ -202,6 +204,7 @@ header {
 
 .portfolio-column:hover .section-image[src$=".svg"] {
   transform: translate(-50%, -50%) scale(1.06);
+  filter: invert(1) grayscale(100%) contrast(1.15) brightness(1.30);
 }
 
 /* 
@@ -214,6 +217,11 @@ header {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   letter-spacing: 0.1em;
+  transition: color 0.4s ease;
+}
+
+.portfolio-column:hover .column-num {
+  color: var(--color-border);
 }
 
 .column-content {
@@ -230,11 +238,12 @@ header {
   margin-bottom: 1rem;
   text-transform: uppercase;
   color: var(--color-text-main);
-  transition: transform var(--transition-speed) var(--transition-easing);
+  transition: transform var(--transition-speed) var(--transition-easing), color 0.4s ease;
 }
 
 .portfolio-column:hover .column-title {
   transform: translateY(-5px);
+  color: var(--color-pure-white);
 }
 
 .column-desc {
@@ -244,12 +253,13 @@ header {
   max-width: 280px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s var(--transition-easing), transform 0.5s var(--transition-easing);
+  transition: opacity 0.5s var(--transition-easing), transform 0.5s var(--transition-easing), color 0.4s ease;
 }
 
 .portfolio-column:hover .column-desc {
   opacity: 1;
   transform: translateY(0);
+  color: #cccccc;
 }
 
 /* 
